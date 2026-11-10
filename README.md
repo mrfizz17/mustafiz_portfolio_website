@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mustafizur Rahman Chowdhury — Portfolio
 
-## Getting Started
+A dark, neon-accented portfolio for a full-stack developer, built with Next.js 16, React 19, and custom CSS.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router (static prerendering)
+- React server components with small client islands
+- `next/font` for self-hosted Space Grotesk and JetBrains Mono
+- `next/image` for optimized project screenshots and the hero portrait
+- Custom CSS with CSS variables and responsive layouts (no UI library)
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+```text
+src/
+  app/
+    globals.css      Design tokens, layout, sections, responsive rules
+    icon.svg         Favicon
+    layout.tsx       Fonts, metadata, viewport
+    page.tsx         All portfolio content and SEO data
+  components/
+    contact-form.tsx Mailto contact form with status feedback
+    scroll-effects.tsx Scroll progress and active nav state
+    typed-role.tsx   Typewriter role animation
+public/
+  portrait.jpg       Hero portrait
+  projects/          Project screenshots
+  resume.pdf         Downloadable resume
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Customize
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Content, links, projects, and skills live in `src/app/page.tsx`.
+- Colors, type, and spacing live in `src/app/globals.css`.
+- Replace `public/portrait.jpg` and the three project images in `public/projects/`.
+- Replace `public/resume.pdf` with an updated resume.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The contact form has no backend. It opens the visitor's email client with the message prefilled, and still works without JavaScript through the form's `mailto:` action.
